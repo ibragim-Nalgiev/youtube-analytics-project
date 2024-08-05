@@ -50,3 +50,32 @@ class Channel:
 
         with open(path_file_statistic, "w") as f:
             f.write(json_object)
+
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) + int(other.subscriber_count)
+
+    def __radd__(self, other):
+        return self + other
+
+    def __sub__(self, other):
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) - int(other.subscriber_count)
+
+    def __rsub__(self, other):
+        return self - other
+
+    def __eq__(self, other):
+        return int(self.subscriber_count) == int(other.subscriber_count)
+
+    def __lt__(self, other):
+        return int(self.subscriber_count) < int(other.subscriber_count)
+
+    def __le__(self, other):
+        return int(self.subscriber_count) <= int(other.subscriber_count)
+
+
+

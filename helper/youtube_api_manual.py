@@ -30,7 +30,7 @@ docs: https://developers.google.com/youtube/v3/docs/channels/list
 # channel_id = 'UC-OVMPlMA3-YCIeg4z5z23A'  # MoscowPython
 channel_id = 'UCwHL6WHUarjGfUM_586me8w'  # HighLoad Channel
 channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
-printj(channel)
+# printj(channel)
 
 
 '''
@@ -42,9 +42,9 @@ playlists = youtube.playlists().list(channelId=channel_id,
                                      maxResults=50,
                                      ).execute()
 # printj(playlists)
-for playlist in playlists['items']:
-    print(playlist)
-    print()
+# for playlist in playlists['items']:
+#     print(playlist)
+#     print()
 
 
 '''
@@ -76,11 +76,11 @@ video_response = youtube.videos().list(part='contentDetails,statistics',
                                        ).execute()
 # printj(video_response)
 
-for video in video_response['items']:
-    # YouTube video duration is in ISO 8601 format
-    iso_8601_duration = video['contentDetails']['duration']
-    duration = isodate.parse_duration(iso_8601_duration)
-    print(duration)
+# for video in video_response['items']:
+#     # YouTube video duration is in ISO 8601 format
+#     iso_8601_duration = video['contentDetails']['duration']
+#     duration = isodate.parse_duration(iso_8601_duration)
+#     print(duration)
 
 
 '''
@@ -92,7 +92,7 @@ video_id = 'gaoc9MPZ4bw'
 video_response = youtube.videos().list(part='snippet,statistics,contentDetails,topicDetails',
                                        id=video_id
                                        ).execute()
-# printj(video_response)
+printj(video_response)
 video_title: str = video_response['items'][0]['snippet']['title']
 view_count: int = video_response['items'][0]['statistics']['viewCount']
 like_count: int = video_response['items'][0]['statistics']['likeCount']

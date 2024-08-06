@@ -1,4 +1,5 @@
 import os
+import pprint
 
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
@@ -24,8 +25,12 @@ class Video:
     def __str__(self):
         return f"{self.video_title}"
 
+    def get_video(self):
+        return self.video_response
+
 
 class PLVideo(Video):
     def __init__(self, video_id, playlist_id):
         super().__init__(video_id)
         self.playlist_id = playlist_id
+
